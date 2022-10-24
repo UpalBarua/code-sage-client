@@ -1,12 +1,13 @@
 import React from 'react';
-import utilities from '../../assets/utilities.module.css';
-import Navbar from '../Navbar/Navbar';
+import { RouterProvider } from 'react-router-dom';
+import { router } from '../../routes/Router';
+import Main from '../../layouts/Main';
 
 const App = () => {
   return (
-    <div className={utilities.container}>
-      <Navbar />
-    </div>
+    <RouterProvider router={router}>
+      <Main />
+    </RouterProvider>
   );
 };
 

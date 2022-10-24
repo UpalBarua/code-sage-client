@@ -103,9 +103,3 @@ ul,
 ol {
   list-style: none;
 }
-
-button {
-  border: 0;
-  cursor: pointer;
-  padding: 0.25em;
-}

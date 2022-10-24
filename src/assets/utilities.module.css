@@ -1,7 +1,15 @@
 /* ==================== */
 /* UTILITIES            */
 /* ==================== */
-.container {
+:global .container {
   max-width: min(70rem, 100% - 30px);
   margin: 0 auto;
+}
+
+:global .btn {
+  display: inline-flex;
+  padding: 0.25em;
+  border: 0;
+  border: 2px solid transparent;
+  background-color: transparent;
 }
