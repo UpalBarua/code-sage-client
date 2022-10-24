@@ -59,6 +59,11 @@
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+[data-dark-mode='true'] {
+  --clr-primary-500: #fdfdff;
+  --clr-secondary-300: #2d2c2b;
+}
+
 /* ==================== */
 /* GENERAL RESETS       */
 /* ==================== */
@@ -80,6 +85,7 @@ body {
   background-color: var(--clr-primary-500);
   font-weight: var(--fw-regular);
   overflow-x: hidden;
+  transition: background-color 500ms ease-in;
 }
 
 h1,

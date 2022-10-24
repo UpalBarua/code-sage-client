@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiCodeAlt } from 'react-icons/bi';
 import {
@@ -8,13 +8,21 @@ import {
   MdMenu,
   MdClose,
 } from 'react-icons/md';
+import { useDarkMode } from '../../contexts/DarkModeContext';
 import styles from './Navbar.module.css';
 import '../../assets/utilities.module.css';
 
 const Navbar = () => {
+  const [isNavVisible, setIsNavVisible] = useState(false);
+  const { handleDarkModeToggle } = useDarkMode();
+
+  const handleNavToggle = () => {
+    setIsNavVisible(prevIsNavVisible => !prevIsNavVisible);
+  };
+
   return (
-    <header className="container">
-      <nav className={styles.navbar} data-visible="true">
+    <header className={styles.header}>
+      <nav className={`${styles.navbar} container`} data-visible={isNavVisible}>
         <Link className={styles.logo} to="/">
           <BiCodeAlt className={styles.icon} />
           <h1 className={styles.name}>Code Lab</h1>
@@ -33,14 +41,16 @@ const Navbar = () => {
         </ul>
 
         <div className={styles.btnGroup}>
-          <button className={`${styles.navBtn} btn`}>
+          <button
+            className={`${styles.navBtn} btn`}
+            onClick={handleDarkModeToggle}>
             {<MdOutlineDarkMode /> || <MdOutlineLightMode />}
           </button>
           <Link className={`${styles.navBtn} btn`} tp="/user">
             <MdPersonOutline />
           </Link>
-          <button className={`${styles.navBtn} btn`}>
-            {<MdMenu /> || <MdClose />}
+          <button className={`${styles.navBtn} btn`} onClick={handleNavToggle}>
+            {isNavVisible ? <MdClose /> : <MdMenu />}
           </button>
         </div>
       </nav>

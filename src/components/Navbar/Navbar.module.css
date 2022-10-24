@@ -9,7 +9,10 @@
   max-height: 3.25rem;
   padding: var(--spacing-200) 0;
   overflow: hidden;
-  border-bottom: 1px solid white;
+}
+
+.header {
+  border-bottom: 1px solid var(--clr-secondary-500);
 }
 
 .logo {
@@ -20,17 +23,22 @@
 
 .menu {
   order: 1;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: var(--spacing-300);
   width: 100%;
-  padding: var(--spacing-400) 0;
+  padding: var(--spacing-500) 0;
   text-align: center;
+  font-weight: var(--fw-bold);
 }
 
 .navbar[data-visible='true'] {
   max-height: max-content;
   overflow: visible;
+}
+
+.navbar[data-visible='true'] .menu {
+  display: flex;
 }
 
 .btnGroup {
@@ -41,4 +49,30 @@
 .navBtn {
   color: var(--clr-secondary-300);
   font-size: var(--fs-600);
+}
+
+.navBtn:hover,
+.navBtn:focus-visible {
+  outline: 0;
+  color: var(--clr-secondary-400);
+}
+
+@media screen and (min-width: 48em) {
+  .navbar {
+    padding: var(--spacing-400) 0;
+    max-height: max-content;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    order: initial;
+    width: initial;
+    padding: 0;
+    font-weight: var(--fw-normal);
+  }
+
+  .navBtn:last-child {
+    display: none;
+  }
 }

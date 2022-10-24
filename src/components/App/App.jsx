@@ -1,13 +1,16 @@
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
+import { useDarkMode } from '../../contexts/DarkModeContext';
 import { router } from '../../routes/Router';
-import Main from '../../layouts/Main';
+import styles from './App.module.css';
 
 const App = () => {
+  const { isDarkMode } = useDarkMode();
+
   return (
-    <RouterProvider router={router}>
-      <Main />
-    </RouterProvider>
+    <div className="app" data-dark-mode={isDarkMode}>
+      <RouterProvider router={router}></RouterProvider>
+    </div>
   );
 };
 
