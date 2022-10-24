@@ -1,0 +1,7 @@
+/* ==================== */
+/* UTILITIES            */
+/* ==================== */
+.container {
+  max-width: min(70rem, 100% - 30px);
+  margin: 0 auto;
+}
