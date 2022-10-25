@@ -9,16 +9,17 @@
   max-height: 3.25rem;
   padding: var(--spacing-200) 0;
   overflow: hidden;
+  transition: max-height 500ms ease;
 }
 
 .header {
-  border-bottom: 1px solid var(--clr-secondary-500);
+  border-bottom: 1px solid var(--clr-secondary-300);
 }
 
 .logo {
   display: inline-flex;
   gap: var(--spacing-100);
-  font-size: var(--fs-500);
+  font-size: var(--fs-600);
 }
 
 .menu {
@@ -33,8 +34,7 @@
 }
 
 .navbar[data-visible='true'] {
-  max-height: max-content;
-  overflow: visible;
+  max-height: 40vh;
 }
 
 .navbar[data-visible='true'] .menu {
@@ -61,11 +61,13 @@
   .navbar {
     padding: var(--spacing-400) 0;
     max-height: max-content;
+    transition: none;
   }
 
   .menu {
     display: flex;
     flex-direction: row;
+    gap: var(--spacing-500);
     order: initial;
     width: initial;
     padding: 0;

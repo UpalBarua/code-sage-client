@@ -14,7 +14,7 @@
   --fs-600: 1.25rem;
   --fs-700: 1.75rem;
   --fs-800: 2rem;
-  --fs-900: 2.5rem;
+  --fs-900: 4.5rem;
 
   --fw-light: 300;
   --fw-regular: 400;
@@ -57,6 +57,12 @@
   /* MISCELLANEOUS */
   --box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+@media screen and (min-width: 48em) {
+  :root {
+    --fs-600: 1.5rem;
+  }
 }
 
 [data-dark-mode='true'] {
