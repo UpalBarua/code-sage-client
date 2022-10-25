@@ -12,7 +12,7 @@
   background-color: var(--clr-primary-400);
   color: var(--clr-light-500);
   border: 2px solid var(--clr-secondary-400);
-  padding: var(--spacing-100) var(--spacing-200);
+  padding: var(--spacing-200);
 }
 
 .input:hover,

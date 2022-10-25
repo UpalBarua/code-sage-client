@@ -13,14 +13,14 @@
 .col:first-child {
   grid-column: 1/13;
   grid-row: 1/12;
-  background-color: var(--clr-primary-300);
   padding: var(--spacing-400);
+  background-color: var(--clr-primary-400);
 }
 
 .col:last-child {
   grid-column: 1/13;
   grid-row: 3/13;
-  background-color: var(--clr-primary-400);
+  background-color: var(--clr-primary-300);
 }
 
 .form {
@@ -45,6 +45,7 @@
   width: 100%;
   margin-top: var(--spacing-400);
   padding: var(--spacing-300);
+  background-color: var(--clr-accent-500);
 }
 
 @media screen and (min-width: 48em) {

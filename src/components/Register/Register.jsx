@@ -4,6 +4,7 @@ import NameInput from '../Form/NameInput';
 import EmailInput from '../Form/EmailInput';
 import PasswordInput from '../Form/PasswordInput';
 import PhotoUrlInput from '../Form/PhotoUrlInput';
+import { useAuth } from '../../contexts/AuthContext';
 import styles from '../Register/Register.module.css';
 import utilities from '../../assets/utilities.module.css';
 
@@ -12,6 +13,18 @@ const Register = () => {
   const [emailInputVal, setEmailInputVal] = useState('');
   const [passwordInputVal, setPasswordInputVal] = useState('');
   const [photoUrlInputVal, setPhotoUrlInputVal] = useState('');
+  const { createUser } = useAuth();
+
+  const handleRegister = async event => {
+    event.preventDefault();
+
+    try {
+      await createUser(emailInputVal, passwordInputVal);
+      console.log('Account created');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={`${styles.container} ${utilities.container}`}>
@@ -24,7 +37,7 @@ const Register = () => {
         </div>
 
         <div className={styles.col}>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={handleRegister}>
             <NameInput
               nameInputVal={nameInputVal}
               setNameInputVal={setNameInputVal}

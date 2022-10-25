@@ -27,7 +27,7 @@ const Navbar = () => {
         data-visible={isNavVisible}>
         <Link className={styles.logo} to="/">
           <BiCodeAlt className={styles.icon} />
-          <h1 className={styles.name}>Code Lab</h1>
+          <h1 className={styles.name}>CodeSage</h1>
         </Link>
 
         <ul className={styles.menu}>
