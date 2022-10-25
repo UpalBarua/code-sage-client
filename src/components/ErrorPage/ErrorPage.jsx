@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ErrorPage.module.css';
-import '../../assets/utilities.module.css';
+import utilities from '../../assets/utilities.module.css';
 
 const ErrorPage = () => {
   return (
-    <div className={`${styles.errorContainer} container`}>
+    <div className={`${styles.errorContainer} ${utilities.container}`}>
       <div className={styles.grid}>
         <div className={styles.col}>
           <p className={styles.status}>404!</p>

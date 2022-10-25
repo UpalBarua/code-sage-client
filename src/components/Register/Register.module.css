@@ -1,0 +1,72 @@
+/* ==================== */
+/* REGISTER SECTION     */
+/* ==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  max-width: 30rem;
+  margin: var(--spacing-500) auto;
+  margin-bottom: 8rem;
+}
+
+.col:first-child {
+  grid-column: 1/13;
+  grid-row: 1/12;
+  background-color: var(--clr-primary-300);
+  padding: var(--spacing-400);
+}
+
+.col:last-child {
+  grid-column: 1/13;
+  grid-row: 3/13;
+  background-color: var(--clr-primary-400);
+}
+
+.form {
+  padding: var(--spacing-100);
+}
+
+.title {
+  font-size: var(--fs-800);
+  font-weight: var(--fw-bold);
+  color: var(--clr-accent-400);
+  margin-bottom: var(--spacing-400);
+  font-family: var(--ff-secondary);
+}
+
+.text {
+  font-size: var(--fs-400);
+  position: relative;
+  z-index: 10;
+}
+
+.registerBtn {
+  width: 100%;
+  margin-top: var(--spacing-400);
+  padding: var(--spacing-300);
+}
+
+@media screen and (min-width: 48em) {
+  .col:first-child {
+    grid-column: 3/13;
+    grid-row: 1/12;
+  }
+
+  .col:last-child {
+    grid-column: 1/11;
+    grid-row: 3/13;
+    position: relative;
+  }
+
+  .col:last-child::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 15%;
+    right: 15%;
+    z-index: -10;
+    border: 10px solid var(--clr-accent-300);
+  }
+}

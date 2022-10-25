@@ -1,12 +1,12 @@
 /* ==================== */
 /* UTILITIES            */
 /* ==================== */
-:global .container {
-  max-width: min(60rem, 100% - 30px);
+.container {
+  max-width: min(70rem, 100% - 30px);
   margin: 0 auto;
 }
 
-:global .btn {
+.btn {
   display: inline-flex;
   padding: 0.25em;
   border: 0;
@@ -14,15 +14,15 @@
   background-color: transparent;
 }
 
-:global .btnPrimary {
+.btnPrimary {
   border-color: var(--clr-secondary-300);
   padding: 0.45em 1.5em;
   font-weight: var(--fw-bold);
   position: relative;
-  margin: var(--spacing-400) 0;
+  color: var(--clr-secondary-300);
 }
 
-:global .btnPrimary::after {
+.btnPrimary::after {
   content: '';
   height: 100%;
   width: 100%;

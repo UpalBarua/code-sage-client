@@ -10,7 +10,7 @@ import {
 } from 'react-icons/md';
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import styles from './Navbar.module.css';
-import '../../assets/utilities.module.css';
+import utilities from '../../assets/utilities.module.css';
 
 const Navbar = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -22,7 +22,9 @@ const Navbar = () => {
 
   return (
     <header className={styles.header}>
-      <nav className={`${styles.navbar} container`} data-visible={isNavVisible}>
+      <nav
+        className={`${styles.navbar} ${utilities.container}`}
+        data-visible={isNavVisible}>
         <Link className={styles.logo} to="/">
           <BiCodeAlt className={styles.icon} />
           <h1 className={styles.name}>Code Lab</h1>
@@ -42,14 +44,16 @@ const Navbar = () => {
 
         <div className={styles.btnGroup}>
           <button
-            className={`${styles.navBtn} btn`}
+            className={`${styles.navBtn} ${utilities.btn}`}
             onClick={handleDarkModeToggle}>
             {<MdOutlineDarkMode /> || <MdOutlineLightMode />}
           </button>
-          <Link className={`${styles.navBtn} btn`} tp="/user">
+          <Link className={`${styles.navBtn} ${utilities.btn}`} tp="/user">
             <MdPersonOutline />
           </Link>
-          <button className={`${styles.navBtn} btn`} onClick={handleNavToggle}>
+          <button
+            className={`${styles.navBtn} ${utilities.btn}`}
+            onClick={handleNavToggle}>
             {isNavVisible ? <MdClose /> : <MdMenu />}
           </button>
         </div>
