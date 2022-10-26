@@ -29,7 +29,7 @@
   order: 1;
   display: none;
   flex-direction: column;
-  gap: var(--spacing-300);
+  gap: var(--spacing-600);
   width: 100%;
   padding: var(--spacing-500) 0;
   text-align: center;
@@ -53,11 +53,11 @@
 .btnGroup {
   display: flex;
   align-items: center;
+  gap: var(--spacing-200);
 }
 
 .navBtn {
   color: var(--clr-secondary-300);
-  font-size: var(--fs-600);
   cursor: pointer;
 }
 
@@ -65,6 +65,17 @@
 .navBtn:focus-visible {
   outline: 0;
   color: var(--clr-secondary-400);
+}
+
+.userImg {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--clr-accent-400);
+}
+
+.icon {
+  font-size: var(--fs-600);
 }
 
 @media screen and (min-width: 48em) {

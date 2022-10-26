@@ -6,32 +6,40 @@ import PasswordInput from '../Form/PasswordInput';
 import { useAuth } from '../../contexts/AuthContext';
 import styles from '../Register/Register.module.css';
 import utilities from '../../assets/utilities.module.css';
+import { async } from '@firebase/util';
 
 const Login = () => {
   const [emailInputVal, setEmailInputVal] = useState('');
   const [passwordInputVal, setPasswordInputVal] = useState('');
-  const { googleRegister, githubRegister } = useAuth();
   const [loginError, setLoginError] = useState('');
+  const { googleRegister, githubRegister, logIn } = useAuth();
 
-  const handleLogin = () => {
-    console.log('logged in');
+  const handleLogin = async event => {
+    event.preventDefault();
+
+    try {
+      await logIn(emailInputVal, passwordInputVal);
+      setLoginError('');
+    } catch (error) {
+      setLoginError(error);
+    }
   };
 
   const handleGoogleRegister = async () => {
     try {
       await googleRegister();
-      console.log('REGISTERD');
+      setLoginError('');
     } catch (error) {
-      console.log(error.message);
+      setLoginError(error);
     }
   };
 
   const handleGithubRegister = async () => {
     try {
       await githubRegister();
-      console.log('REGISTERD');
+      setLoginError('');
     } catch (error) {
-      console.log(error.message);
+      setLoginError(error);
     }
   };
 

@@ -5,6 +5,7 @@ import Register from '../components/Register/Register.jsx';
 import Courses from '../components/Courses/Courses.jsx';
 import Details from '../components/Details/Details';
 import Login from '../components/Login/Login.jsx';
+import UserDashboard from '../components/UserDashboard/UserDashboard.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       { path: '/details/:courseId', element: <Details /> },
       { path: '/f&q', element: <h1>f&q</h1> },
       { path: '/blog', element: <h1>Blog</h1> },
+      { path: '/dashboard', element: <UserDashboard /> },
     ],
   },
 

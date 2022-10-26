@@ -11,10 +11,12 @@ import {
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import styles from './Navbar.module.css';
 import utilities from '../../assets/utilities.module.css';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Navbar = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const { isDarkMode, handleDarkModeToggle } = useDarkMode();
+  const { currentUser } = useAuth();
 
   const handleNavToggle = () => {
     setIsNavVisible(prevIsNavVisible => !prevIsNavVisible);
@@ -46,15 +48,42 @@ const Navbar = () => {
           <button
             className={`${styles.navBtn} ${utilities.btn}`}
             onClick={handleDarkModeToggle}>
-            {!isDarkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+            {!isDarkMode ? (
+              <MdOutlineDarkMode className={styles.icon} />
+            ) : (
+              <MdOutlineLightMode className={styles.icon} />
+            )}
           </button>
-          <Link className={`${styles.navBtn} ${utilities.btn}`} tp="/user">
-            <MdPersonOutline />
-          </Link>
+
+          {currentUser ? (
+            <Link
+              className={`${styles.navBtn} ${utilities.btn}`}
+              to="/dashboard">
+              {currentUser.photoURL ? (
+                <img
+                  className={styles.userImg}
+                  src={currentUser.photoURL}
+                  alt={currentUser.displayName}
+                  title={currentUser.displayName}
+                />
+              ) : (
+                <MdPersonOutline className={styles.icon} />
+              )}
+            </Link>
+          ) : (
+            <Link className={`${styles.navBtn} ${utilities.btn}`} to="/login">
+              Log In
+            </Link>
+          )}
+
           <button
             className={`${styles.navBtn} ${utilities.btn}`}
             onClick={handleNavToggle}>
-            {isNavVisible ? <MdClose /> : <MdMenu />}
+            {isNavVisible ? (
+              <MdClose className={styles.icon} />
+            ) : (
+              <MdMenu className={styles.icon} />
+            )}
           </button>
         </div>
       </nav>
