@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AiOutlineGoogle, AiOutlineGithub } from 'react-icons/ai';
 import EmailInput from '../Form/EmailInput';
 import PasswordInput from '../Form/PasswordInput';
 import { useAuth } from '../../contexts/AuthContext';
+import { useSpinner } from '../../contexts/SpinnerContext';
 import styles from '../Register/Register.module.css';
 import utilities from '../../assets/utilities.module.css';
-import { async } from '@firebase/util';
 
 const Login = () => {
   const [emailInputVal, setEmailInputVal] = useState('');
   const [passwordInputVal, setPasswordInputVal] = useState('');
   const [loginError, setLoginError] = useState('');
   const { googleRegister, githubRegister, logIn } = useAuth();
+  const { setIsSpinnerVisible } = useSpinner();
+  const navigate = useNavigate();
 
   const handleLogin = async event => {
+    setIsSpinnerVisible(true);
     event.preventDefault();
 
     try {
       await logIn(emailInputVal, passwordInputVal);
+      navigate('/');
       setLoginError('');
     } catch (error) {
       setLoginError(error);
     }
+
+    setIsSpinnerVisible(false);
   };
 
   const handleGoogleRegister = async () => {

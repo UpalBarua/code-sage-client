@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
+  updateProfile,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -15,9 +16,11 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
-    onAuthStateChanged(auth, user => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
       setCurrentUser(user);
     });
+
+    return () => unsubscribe();
   }, []);
 
   const createUser = (email, password) => {
@@ -40,9 +43,14 @@ export const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const updateUserProfile = (displayName, photoURL) => {
+    return updateProfile(auth.currentUser, { displayName, photoURL });
+  };
+
   const value = {
     currentUser,
     createUser,
+    updateUserProfile,
     googleRegister,
     githubRegister,
     logIn,

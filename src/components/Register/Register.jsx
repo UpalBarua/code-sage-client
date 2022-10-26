@@ -18,7 +18,8 @@ const Register = () => {
   const [photoUrlInputVal, setPhotoUrlInputVal] = useState('');
   const [confirmPasswordInputVal, setConfirmPasswordInputVal] = useState('');
   const [registerError, setRegisterError] = useState('');
-  const { createUser, googleRegister, githubRegister } = useAuth();
+  const { createUser, googleRegister, githubRegister, updateUserProfile } =
+    useAuth();
   const { setIsSpinnerVisible } = useSpinner();
 
   const handleRegister = async event => {
@@ -27,6 +28,7 @@ const Register = () => {
 
     try {
       await createUser(emailInputVal, passwordInputVal);
+      updateUserProfile(nameInputVal, photoUrlInputVal);
       console.log('Account created');
     } catch (error) {
       setRegisterError('Failed to register user.');
