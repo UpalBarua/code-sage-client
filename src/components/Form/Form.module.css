@@ -9,9 +9,9 @@
 }
 
 .input {
-  background-color: var(--clr-primary-400);
+  background-color: var(--clr-primary-300);
   color: var(--clr-light-500);
-  border: 2px solid var(--clr-secondary-400);
+  border: 2px solid var(--clr-secondary-500);
   padding: var(--spacing-200);
 }
 

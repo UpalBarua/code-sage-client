@@ -1,33 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineGoogle, AiOutlineGithub } from 'react-icons/ai';
-import NameInput from '../Form/NameInput';
 import EmailInput from '../Form/EmailInput';
 import PasswordInput from '../Form/PasswordInput';
-import PhotoUrlInput from '../Form/PhotoUrlInput';
-import ConfirmPasswordInput from '../Form/ConfirmPasswordInput';
 import { useAuth } from '../../contexts/AuthContext';
 import styles from '../Register/Register.module.css';
 import utilities from '../../assets/utilities.module.css';
 
-const Register = () => {
-  const [nameInputVal, setNameInputVal] = useState('');
+const Login = () => {
   const [emailInputVal, setEmailInputVal] = useState('');
   const [passwordInputVal, setPasswordInputVal] = useState('');
-  const [photoUrlInputVal, setPhotoUrlInputVal] = useState('');
-  const [confirmPasswordInputVal, setConfirmPasswordInputVal] = useState('');
-  const [registerError, setRegisterError] = useState('');
-  const { createUser, googleRegister, githubRegister } = useAuth();
+  const { googleRegister, githubRegister } = useAuth();
+  const [loginError, setLoginError] = useState('');
 
-  const handleRegister = async event => {
-    event.preventDefault();
-
-    try {
-      await createUser(emailInputVal, passwordInputVal);
-      console.log('Account created');
-    } catch (error) {
-      setRegisterError('Failed to register user.');
-    }
+  const handleLogin = () => {
+    console.log('logged in');
   };
 
   const handleGoogleRegister = async () => {
@@ -52,11 +39,11 @@ const Register = () => {
     <div className={`${styles.container} ${utilities.container}`}>
       <div className={styles.grid}>
         <div className={styles.formHeader}>
-          <h2 className={styles.title}>Register</h2>
+          <h2 className={styles.title}>Log In</h2>
           <p className={styles.text}>
-            Already have an account? <Link to="/login">Log in</Link>{' '}
+            Don't an account? <Link to="/register">Register</Link>{' '}
           </p>
-          <p>Or register with...</p>
+          <p>Or log in with...</p>
 
           <div className={styles.btnGroup}>
             <button
@@ -74,16 +61,8 @@ const Register = () => {
           </div>
         </div>
 
-        <form className={styles.form} onSubmit={handleRegister}>
+        <form className={styles.form} onSubmit={handleLogin}>
           <div className={styles.formBody}>
-            <NameInput
-              nameInputVal={nameInputVal}
-              setNameInputVal={setNameInputVal}
-            />
-            <PhotoUrlInput
-              photoUrlInput={photoUrlInputVal}
-              setPhotoUrlInputVal={setPhotoUrlInputVal}
-            />
             <EmailInput
               emailInputVal={emailInputVal}
               setEmailInputVal={setEmailInputVal}
@@ -92,19 +71,12 @@ const Register = () => {
               passwordInputVal={passwordInputVal}
               setPasswordInputVal={setPasswordInputVal}
             />
-            <ConfirmPasswordInput
-              passwordInputVal={passwordInputVal}
-              confirmPasswordInputVal={confirmPasswordInputVal}
-              setConfirmPasswordInputVal={setConfirmPasswordInputVal}
-            />
           </div>
 
           <div className={styles.formFooter}>
-            {registerError && (
-              <p className={styles.errorMessage}>{registerError}</p>
-            )}
+            {loginError && <p className={styles.errorMessage}>{loginError}</p>}
             <button className={`${utilities.btn} ${styles.registerBtn}`}>
-              Register
+              Log In
             </button>
           </div>
         </form>
@@ -113,4 +85,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

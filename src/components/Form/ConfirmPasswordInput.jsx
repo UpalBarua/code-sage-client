@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Form.module.css';
 
-const NameInput = ({ nameInputVal, setNameInputVal }) => {
+const confirmPasswordInput = ({
+  passwordInputVal,
+  confirmPasswordInputVal,
+  setConfirmPasswordInputVal,
+}) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isInputTouched, setIsInputTouched] = useState(false);
-  const nameRegex = /^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$/;
 
-  const handleNameInputChange = event => {
-    setNameInputVal(event.target.value.trim());
+  const handleConfirmPasswordInputChange = event => {
+    setConfirmPasswordInputVal(event.target.value.trim());
   };
 
   const handleInputTouch = () => {
@@ -15,21 +18,21 @@ const NameInput = ({ nameInputVal, setNameInputVal }) => {
   };
 
   useEffect(() => {
-    if (!nameRegex.test(nameInputVal) && isInputTouched) {
-      return setErrorMessage('Not a valid name');
+    if (passwordInputVal !== confirmPasswordInputVal && isInputTouched) {
+      return setErrorMessage("password don't match");
     }
 
     setErrorMessage('');
-  }, [nameInputVal, isInputTouched]);
+  }, [confirmPasswordInputVal, isInputTouched]);
 
   return (
     <div className={styles.wrapper}>
-      <label className={styles.label}>Name</label>
+      <label className={styles.label}>Confirm password</label>
       <input
         className={styles.input}
-        type="text"
+        type="password"
         data-has-error={!!errorMessage}
-        onChange={handleNameInputChange}
+        onChange={handleConfirmPasswordInputChange}
         onBlur={handleInputTouch}
       />
       {errorMessage && <p className={styles.warning}>{errorMessage}</p>}
@@ -37,4 +40,4 @@ const NameInput = ({ nameInputVal, setNameInputVal }) => {
   );
 };
 
-export default NameInput;
+export default confirmPasswordInput;
