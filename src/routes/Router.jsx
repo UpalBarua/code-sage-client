@@ -13,6 +13,8 @@ export const router = createBrowserRouter([
       { path: '/register', element: <Register /> },
       { path: '/courses', element: <Courses /> },
       { path: '/details/:courseId', element: <Details /> },
+      { path: '/f&q', element: <h1>f&q</h1> },
+      { path: '/blog', element: <h1>Blog</h1> },
     ],
   },
 

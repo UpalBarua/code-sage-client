@@ -36,6 +36,12 @@
   font-weight: var(--fw-bold);
 }
 
+.menuItem:hover,
+.menuItem:focus-visible {
+  transition: 250ms ease-in;
+  color: var(--clr-accent-400);
+}
+
 .navbar[data-visible='true'] {
   max-height: 40vh;
 }

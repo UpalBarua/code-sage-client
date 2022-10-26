@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { BiCodeAlt } from 'react-icons/bi';
 import {
   MdOutlineDarkMode,
@@ -32,13 +32,13 @@ const Navbar = () => {
 
         <ul className={styles.menu}>
           <li className={styles.menuItem}>
-            <Link to="/courses">Courses</Link>
+            <NavLink to="/courses">Courses</NavLink>
           </li>
           <li className={styles.menuItem}>
-            <Link to="/f&q">F&Q</Link>
+            <NavLink to="/f&q">F&Q</NavLink>
           </li>
           <li className={styles.menuItem}>
-            <Link to="/blog">Blog</Link>
+            <NavLink to="/blog">Blog</NavLink>
           </li>
         </ul>
 

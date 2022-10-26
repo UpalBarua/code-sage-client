@@ -123,3 +123,18 @@ ul,
 ol {
   list-style: none;
 }
+
+.active {
+  color: var(--clr-accent-400);
+  position: relative;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--clr-accent-400);
+  margin-top: var(--spacing-600);
+}
