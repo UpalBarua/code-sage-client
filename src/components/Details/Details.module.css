@@ -2,6 +2,10 @@
 /* DETAILS SECTION      */
 /* ==================== */
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-500);
   max-width: calc(100% - 30px);
   margin: var(--spacing-500) auto;
 }
@@ -30,7 +34,7 @@
   justify-content: space-around;
   align-items: center;
   padding: var(--spacing-400);
-  margin-block: var(--spacing-400);
+  margin-bottom: var(--spacing-400);
 }
 
 .statsWrapper {
@@ -48,6 +52,12 @@
 
 .description {
   text-align: center;
+}
+
+.accessBtn {
+  border-color: var(--clr-accent-400);
+  padding: var(--spacing-300) var(--spacing-500);
+  font-weight: var(--fw-bold);
 }
 
 @media screen and (min-width: 48em) {

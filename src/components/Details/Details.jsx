@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { BsStar, BsCurrencyDollar } from 'react-icons/bs';
 import { IoLanguageOutline } from 'react-icons/io5';
 import utilities from '../../assets/utilities.module.css';
@@ -50,6 +50,10 @@ const Details = () => {
 
         <p className={styles.description}>{description}</p>
       </div>
+
+      <Link className={`${utilities.btn} ${styles.accessBtn}`} to="/checkout">
+        Get premium access
+      </Link>
     </section>
   );
 };

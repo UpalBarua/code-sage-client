@@ -6,6 +6,8 @@ import Courses from '../components/Courses/Courses.jsx';
 import Details from '../components/Details/Details';
 import Login from '../components/Login/Login.jsx';
 import UserDashboard from '../components/UserDashboard/UserDashboard.jsx';
+import Checkout from '../components/Checkout/Checkout';
+import PrivateRoute from './PrivateRoute.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
       { path: '/f&q', element: <h1>f&q</h1> },
       { path: '/blog', element: <h1>Blog</h1> },
       { path: '/dashboard', element: <UserDashboard /> },
+      {
+        path: '/checkout',
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 

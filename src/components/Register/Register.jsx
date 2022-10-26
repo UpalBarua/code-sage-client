@@ -7,6 +7,7 @@ import PasswordInput from '../Form/PasswordInput';
 import PhotoUrlInput from '../Form/PhotoUrlInput';
 import ConfirmPasswordInput from '../Form/ConfirmPasswordInput';
 import { useAuth } from '../../contexts/AuthContext';
+import { useSpinner } from '../../contexts/SpinnerContext';
 import styles from '../Register/Register.module.css';
 import utilities from '../../assets/utilities.module.css';
 
@@ -18,9 +19,11 @@ const Register = () => {
   const [confirmPasswordInputVal, setConfirmPasswordInputVal] = useState('');
   const [registerError, setRegisterError] = useState('');
   const { createUser, googleRegister, githubRegister } = useAuth();
+  const { setIsSpinnerVisible } = useSpinner();
 
   const handleRegister = async event => {
     event.preventDefault();
+    setIsSpinnerVisible(true);
 
     try {
       await createUser(emailInputVal, passwordInputVal);
@@ -28,24 +31,34 @@ const Register = () => {
     } catch (error) {
       setRegisterError('Failed to register user.');
     }
+
+    setIsSpinnerVisible(false);
   };
 
   const handleGoogleRegister = async () => {
+    setIsSpinnerVisible(true);
+
     try {
       await googleRegister();
       console.log('REGISTERD');
     } catch (error) {
       console.log(error.message);
     }
+
+    setIsSpinnerVisible(false);
   };
 
   const handleGithubRegister = async () => {
+    setIsSpinnerVisible(true);
+
     try {
       await githubRegister();
       console.log('REGISTERD');
     } catch (error) {
       console.log(error.message);
     }
+
+    setIsSpinnerVisible(false);
   };
 
   return (

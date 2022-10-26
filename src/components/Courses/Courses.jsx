@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import CourseCard from './CourseCard';
+import { useSpinner } from '../../contexts/SpinnerContext';
 import utilities from '../../assets/utilities.module.css';
 import styles from '../Courses/Courses.module.css';
-import CourseCard from './CourseCard';
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  const { setIsSpinnerVisible } = useSpinner();
 
   useEffect(() => {
+    setIsSpinnerVisible(true);
+
     (async () => {
       const response = await fetch('http://localhost:5000/courses');
       const data = await response.json();
       setCourses(data);
+      setIsSpinnerVisible(false);
     })();
   }, []);
 
