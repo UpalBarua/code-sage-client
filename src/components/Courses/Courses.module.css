@@ -1,0 +1,48 @@
+/* ==================== */
+/* COURSES STYLES       */
+/* ==================== */
+.courseContainer {
+  display: grid;
+  grid-template-columns: auto;
+  gap: var(--spacing-400);
+  margin: var(--spacing-500) 0;
+}
+
+.sidebar {
+  background-color: var(--clr-primary-300);
+  padding: var(--spacing-400) var(--spacing-600);
+  display: none;
+  height: max-content;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar .menuItem {
+  margin-block: var(--spacing-400);
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-400);
+}
+
+@media screen and (min-width: 36em) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .courseContainer {
+    grid-template-columns: 20% auto;
+  }
+
+  .cardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sidebar {
+    display: initial;
+  }
+}

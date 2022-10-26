@@ -44,6 +44,8 @@
   --clr-success-400: #4daa57;
   --clr-success-500: #45994e;
 
+  --bg-transparent: rgba(22, 20, 19, 0.85);
+
   /* SPACING */
   --spacing-100: 0.25rem;
   --spacing-200: 0.5rem;
@@ -89,6 +91,7 @@
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   font-size: var(--fs-400);
   font-family: var(--ff-primary);
