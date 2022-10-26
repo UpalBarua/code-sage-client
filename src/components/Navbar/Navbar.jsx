@@ -14,7 +14,7 @@ import utilities from '../../assets/utilities.module.css';
 
 const Navbar = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
-  const { handleDarkModeToggle } = useDarkMode();
+  const { isDarkMode, handleDarkModeToggle } = useDarkMode();
 
   const handleNavToggle = () => {
     setIsNavVisible(prevIsNavVisible => !prevIsNavVisible);
@@ -46,7 +46,7 @@ const Navbar = () => {
           <button
             className={`${styles.navBtn} ${utilities.btn}`}
             onClick={handleDarkModeToggle}>
-            {<MdOutlineDarkMode /> || <MdOutlineLightMode />}
+            {!isDarkMode ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
           </button>
           <Link className={`${styles.navBtn} ${utilities.btn}`} tp="/user">
             <MdPersonOutline />

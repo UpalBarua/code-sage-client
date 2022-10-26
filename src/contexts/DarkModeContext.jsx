@@ -1,15 +1,18 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const DarkModeContext = createContext();
 export const useDarkMode = () => useContext(DarkModeContext);
 
 export const DarkModeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const handleDarkModeToggle = () => {
     setIsDarkMode(prevIsDarkMode => !prevIsDarkMode);
-    document.documentElement.setAttribute('data-dark-mode', isDarkMode);
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-dark-mode', isDarkMode);
+  }, [isDarkMode]);
 
   const value = {
     isDarkMode,

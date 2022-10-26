@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AiOutlineGoogle, AiOutlineGithub } from 'react-icons/ai';
 import NameInput from '../Form/NameInput';
 import EmailInput from '../Form/EmailInput';
 import PasswordInput from '../Form/PasswordInput';
@@ -13,7 +14,8 @@ const Register = () => {
   const [emailInputVal, setEmailInputVal] = useState('');
   const [passwordInputVal, setPasswordInputVal] = useState('');
   const [photoUrlInputVal, setPhotoUrlInputVal] = useState('');
-  const { createUser } = useAuth();
+  const [registerError, setRegisterError] = useState('');
+  const { createUser, googleRegister, githubRegister } = useAuth();
 
   const handleRegister = async event => {
     event.preventDefault();
@@ -22,22 +24,56 @@ const Register = () => {
       await createUser(emailInputVal, passwordInputVal);
       console.log('Account created');
     } catch (error) {
-      console.log(error);
+      setRegisterError('Failed to register user.');
+    }
+  };
+
+  const handleGoogleRegister = async () => {
+    try {
+      await googleRegister();
+      console.log('REGISTERD');
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleGithubRegister = async () => {
+    try {
+      await githubRegister();
+      console.log('REGISTERD');
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
   return (
     <div className={`${styles.container} ${utilities.container}`}>
       <div className={styles.grid}>
-        <div className={styles.col}>
+        <div className={styles.formHeader}>
           <h2 className={styles.title}>Register</h2>
           <p className={styles.text}>
             Already have an account? <Link to="/login">Log in</Link>{' '}
           </p>
+          <p>Or register with...</p>
+
+          <div className={styles.btnGroup}>
+            <button
+              className={`${utilities.btn} ${styles.formBtn}`}
+              onClick={handleGoogleRegister}>
+              <AiOutlineGoogle />
+              Google
+            </button>
+            <button
+              className={`${utilities.btn} ${styles.formBtn}`}
+              onClick={handleGithubRegister}>
+              <AiOutlineGithub />
+              Github
+            </button>
+          </div>
         </div>
 
-        <div className={styles.col}>
-          <form className={styles.form} onSubmit={handleRegister}>
+        <form className={styles.form} onSubmit={handleRegister}>
+          <div className={styles.formBody}>
             <NameInput
               nameInputVal={nameInputVal}
               setNameInputVal={setNameInputVal}
@@ -54,12 +90,17 @@ const Register = () => {
               photoUrlInput={photoUrlInputVal}
               setPhotoUrlInputVal={setPhotoUrlInputVal}
             />
-            <button
-              className={`${styles.registerBtn} ${utilities.btn} ${utilities.btnPrimary}`}>
+          </div>
+
+          <div className={styles.formFooter}>
+            {registerError && (
+              <p className={styles.errorMessage}>{registerError}</p>
+            )}
+            <button className={`${utilities.btn} ${styles.registerBtn}`}>
               Register
             </button>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );

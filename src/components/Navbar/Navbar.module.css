@@ -49,6 +49,7 @@
 .navBtn {
   color: var(--clr-secondary-300);
   font-size: var(--fs-600);
+  cursor: pointer;
 }
 
 .navBtn:hover,

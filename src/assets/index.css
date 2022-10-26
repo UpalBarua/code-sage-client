@@ -66,9 +66,14 @@
   }
 }
 
-[data-dark-mode='true'] {
-  --clr-primary-500: #fdfdff;
+[data-dark-mode='false'] {
+  --clr-primary-500: #e4e4e6;
+  --clr-primary-400: #cacacc;
+  --clr-primary-300: #fdfdff;
+
   --clr-secondary-300: #2d2c2b;
+  --clr-secondary-400: #2d2c2b;
+  --clr-secondary-500: #2d2c2b;
 }
 
 /* ==================== */
@@ -92,7 +97,6 @@ body {
   background-color: var(--clr-primary-500);
   font-weight: var(--fw-regular);
   overflow-x: hidden;
-  transition: background-color 500ms ease-in;
 }
 
 h1,

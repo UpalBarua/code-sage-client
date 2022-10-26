@@ -3,71 +3,69 @@
 /* ==================== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  max-width: 30rem;
+  grid-template-columns: 1fr;
   margin: var(--spacing-500) auto;
-  margin-bottom: 8rem;
+  max-width: 25rem;
 }
 
-.col:first-child {
-  grid-column: 1/13;
-  grid-row: 1/12;
-  padding: var(--spacing-400);
-  background-color: var(--clr-primary-400);
-}
-
-.col:last-child {
-  grid-column: 1/13;
-  grid-row: 3/13;
+.formHeader {
+  /* border: 2px solid red; */
   background-color: var(--clr-primary-300);
-}
-
-.form {
-  padding: var(--spacing-100);
+  padding: var(--spacing-400);
 }
 
 .title {
-  font-size: var(--fs-800);
+  font-size: var(--fs-700);
   font-weight: var(--fw-bold);
+  margin-bottom: var(--spacing-300);
   color: var(--clr-accent-400);
-  margin-bottom: var(--spacing-400);
-  font-family: var(--ff-secondary);
 }
 
-.text {
-  font-size: var(--fs-400);
-  position: relative;
-  z-index: 10;
+.text > a {
+  color: var(--clr-accent-400);
+  font-weight: var(--fw-bold);
+}
+
+.btnGroup {
+  margin-top: var(--spacing-500);
+  display: flex;
+  gap: var(--spacing-200);
+}
+
+.formBtn {
+  color: var(--clr-secondary-300);
+  border-color: var(--clr-secondary-300);
+  padding: 0.45em 1em;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+}
+
+.form {
+  background-color: var(--clr-primary-400);
+  padding: var(--spacing-300) 0;
 }
 
 .registerBtn {
-  width: 100%;
+  border-color: var(--clr-secondary-300);
+  color: var(--clr-secondary-300);
+  padding: var(--spacing-200) var(--spacing-400);
   margin-top: var(--spacing-400);
+}
+
+.formFooter {
+  margin: var(--spacing-400);
+}
+
+.errorMessage {
+  background-color: var(--clr-warning-50);
   padding: var(--spacing-300);
-  background-color: var(--clr-accent-500);
+  border: 2px solid var(--clr-warning-300);
 }
 
 @media screen and (min-width: 48em) {
-  .col:first-child {
-    grid-column: 3/13;
-    grid-row: 1/12;
-  }
-
-  .col:last-child {
-    grid-column: 1/11;
-    grid-row: 3/13;
-    position: relative;
-  }
-
-  .col:last-child::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 15%;
-    right: 15%;
-    z-index: -10;
-    border: 10px solid var(--clr-accent-300);
+  .grid {
+    max-width: 50rem;
+    grid-template-columns: 1fr 1fr;
   }
 }
