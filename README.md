@@ -15,6 +15,6 @@ Live Site: https://codesage-bd5cf.web.app/
 
 - Fully responsive for mobile and tablet devices.
 - Navbar, Sidebar and loading spinner were created from scratch.
--
--
--
+- Form validation was implemented from scratch.
+- Dark mode is fully functional.
+- React portals was used.
