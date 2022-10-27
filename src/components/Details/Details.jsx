@@ -7,6 +7,8 @@ import DetailsPdf from './DetailsPdf';
 import utilities from '../../assets/utilities.module.css';
 import styles from './Details.module.css';
 import jsPDF from 'jspdf';
+// import {pd} from 'react-to-pdf'
+import Pdf from 'react-to-pdf';
 
 const Details = () => {
   const courseId = useParams().courseId;
@@ -24,18 +26,8 @@ const Details = () => {
   const { id, img, name, instructor, ratings, description, lastUpdated } =
     courseDetails;
 
-  const generatePDF = () => {
-    const pdf = new jsPDF('portrait', 'pt', 'a4');
-    // const data = document.querySelector('#course-details');
-    const data = pdfRef.current;
-    pdf.html(data).then(() => {
-      pdf.setTextColor(255, 0, 0);
-      pdf.save('details.pdf');
-    });
-  };
-
   return (
-    <section className={styles.container}>
+    <section className={styles.container} ref={pdfRef}>
       <div className={styles.header}>
         <img className={styles.detailsImg} src={img} alt="" />
         <div>
@@ -44,16 +36,25 @@ const Details = () => {
             Created by <span>{instructor}</span>
           </p>
           <p>Last updated {lastUpdated} months ago</p>
-          <button
+
+          <Pdf targetRef={pdfRef} filename="course-details.pdf" op>
+            {({ toPdf }) => (
+              <button
+                className={`${utilities.btn} ${styles.pdfBtn}`}
+                onClick={toPdf}>
+                Generate Pdf
+              </button>
+            )}
+          </Pdf>
+
+          {/* <button
             className={`${utilities.btn} ${styles.pdfBtn}`}
             onClick={generatePDF}
             type="button">
             Save as pdf
-          </button>
+          </button> */}
         </div>
       </div>
-
-      {/* <button onClick={this.}></button> */}
 
       <div className={styles.body}>
         <div className={styles.stats}>

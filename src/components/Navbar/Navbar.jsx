@@ -34,6 +34,11 @@ const Navbar = () => {
 
         <ul className={styles.menu}>
           <li className={styles.menuItem}>
+            <NavLink to="/" end>
+              Home
+            </NavLink>
+          </li>
+          <li className={styles.menuItem}>
             <NavLink to="/courses">Courses</NavLink>
           </li>
           <li className={styles.menuItem}>
