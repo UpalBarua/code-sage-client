@@ -8,6 +8,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { auth, googleAuth, githubAuth } from '../firebase/firebase.config';
+import { useSpinner } from './SpinnerContext';
 
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);

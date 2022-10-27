@@ -10,6 +10,7 @@
   align-items: center;
   gap: var(--spacing-500);
 }
+
 .title {
   font-size: var(--fs-800);
   font-weight: var(--fw-bold);
@@ -24,11 +25,13 @@
   align-items: center;
   font-size: var(--fs-500);
   padding: var(--spacing-400);
+  box-shadow: var(--box-shadow);
 }
 
 .answer {
   padding: var(--spacing-400);
   background-color: var(--clr-primary-400);
+  box-shadow: var(--box-shadow);
 }
 
 @media screen and (min-width: 48em) {

@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { BsQuestion } from 'react-icons/bs';
 import utilities from '../../assets/utilities.module.css';
 import styles from './Blog.module.css';
+import { useSpinner } from '../../contexts/SpinnerContext';
 
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
+  const { setIsSpinnerVisible } = useSpinner();
 
   useEffect(() => {
+    setIsSpinnerVisible(true);
     (async () => {
-      const response = await fetch('http://localhost:5000/blog');
+      const response = await fetch('https://codesage-eight.vercel.app/blog');
       const data = await response.json();
       setBlogData(data);
+      setIsSpinnerVisible(false);
     })();
   }, []);
 

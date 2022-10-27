@@ -9,17 +9,24 @@ import styles from './Details.module.css';
 import jsPDF from 'jspdf';
 // import {pd} from 'react-to-pdf'
 import Pdf from 'react-to-pdf';
+import { useSpinner } from '../../contexts/SpinnerContext';
 
 const Details = () => {
   const courseId = useParams().courseId;
   const [courseDetails, setCourseDetails] = useState({});
   const pdfRef = useRef(null);
+  const { setIsSpinnerVisible } = useSpinner();
 
   useEffect(() => {
+    setIsSpinnerVisible(true);
+
     (async () => {
-      const response = await fetch(`http://localhost:5000/details/${courseId}`);
+      const response = await fetch(
+        `https://codesage-eight.vercel.app/details/${courseId}`
+      );
       const data = await response.json();
       setCourseDetails(data);
+      setIsSpinnerVisible(false);
     })();
   }, []);
 

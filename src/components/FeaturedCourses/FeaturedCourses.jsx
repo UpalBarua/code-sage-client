@@ -8,7 +8,9 @@ const FeaturedCourses = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://localhost:5000/featured');
+      const response = await fetch(
+        'https://codesage-eight.vercel.app/featured'
+      );
       const data = await response.json();
       setFeaturedCourses(data);
     })();
@@ -16,7 +18,9 @@ const FeaturedCourses = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch('http://localhost:5000/bestseller');
+      const response = await fetch(
+        'https://codesage-eight.vercel.app/bestseller'
+      );
       const data = await response.json();
       setBestSellerCourses(data);
     })();

@@ -9,14 +9,14 @@ import { SidebarProvider } from './contexts/SidebarContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <DarkModeProvider>
-      <AuthProvider>
-        <SpinnerProvider>
+    <SpinnerProvider>
+      <DarkModeProvider>
+        <AuthProvider>
           <SidebarProvider>
             <App />
           </SidebarProvider>
-        </SpinnerProvider>
-      </AuthProvider>
-    </DarkModeProvider>
+        </AuthProvider>
+      </DarkModeProvider>
+    </SpinnerProvider>
   </React.StrictMode>
 );

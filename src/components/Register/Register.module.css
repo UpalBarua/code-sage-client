@@ -6,6 +6,8 @@
   grid-template-columns: 1fr;
   margin: var(--spacing-500) auto;
   max-width: 25rem;
+  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 .formHeader {

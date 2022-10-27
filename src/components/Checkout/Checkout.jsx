@@ -9,7 +9,9 @@ const Checkout = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://localhost:5000/details/${courseId}`);
+      const response = await fetch(
+        `https://codesage-eight.vercel.app/details/${courseId}`
+      );
       const data = await response.json();
       setCourseDetails(data);
     })();

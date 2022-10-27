@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineGoogle, AiOutlineGithub } from 'react-icons/ai';
 import NameInput from '../Form/NameInput';
 import EmailInput from '../Form/EmailInput';
@@ -21,6 +21,7 @@ const Register = () => {
   const { createUser, googleRegister, githubRegister, updateUserProfile } =
     useAuth();
   const { setIsSpinnerVisible } = useSpinner();
+  const navigate = useNavigate();
 
   const handleRegister = async event => {
     event.preventDefault();
@@ -29,9 +30,9 @@ const Register = () => {
     try {
       await createUser(emailInputVal, passwordInputVal);
       updateUserProfile(nameInputVal, photoUrlInputVal);
-      console.log('Account created');
+      navigate(-1);
     } catch (error) {
-      setRegisterError('Failed to register user.');
+      setRegisterError(error.message);
     }
 
     setIsSpinnerVisible(false);
@@ -42,9 +43,9 @@ const Register = () => {
 
     try {
       await googleRegister();
-      console.log('REGISTERD');
+      navigate(-1);
     } catch (error) {
-      console.log(error.message);
+      setRegisterError(error.message);
     }
 
     setIsSpinnerVisible(false);
@@ -55,9 +56,9 @@ const Register = () => {
 
     try {
       await githubRegister();
-      console.log('REGISTERD');
+      navigate(-1);
     } catch (error) {
-      console.log(error.message);
+      setRegisterError(error.message);
     }
 
     setIsSpinnerVisible(false);

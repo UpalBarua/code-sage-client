@@ -24,11 +24,7 @@ export const router = createBrowserRouter([
       { path: '/f&q', element: <h1>f&q</h1> },
       {
         path: '/blog',
-        element: (
-          <PrivateRoute>
-            <Blog />
-          </PrivateRoute>
-        ),
+        element: <Blog />,
       },
       { path: '/dashboard', element: <UserDashboard /> },
       {

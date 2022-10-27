@@ -13,10 +13,12 @@ const Hero = () => {
             We make you fall in love with the code!
           </h2>
           <div className={styles.btnGroup}>
-            <Link className={`${utilities.btn} ${styles.heroBtn}`}>
+            <Link
+              to="/courses"
+              className={`${utilities.btn} ${styles.heroBtn}`}>
               Start Learning
             </Link>
-            <Link className={`${utilities.btn} ${styles.heroBtn}`}>
+            <Link to="blog" className={`${utilities.btn} ${styles.heroBtn}`}>
               Read Blog
             </Link>
           </div>

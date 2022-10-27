@@ -16,8 +16,8 @@ const Login = () => {
   const { googleRegister, githubRegister, logIn } = useAuth();
   const { setIsSpinnerVisible } = useSpinner();
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || '/';
 
   const handleEmailInputChange = event => {
     setEmailInputVal(event.target.value.trim());
@@ -28,8 +28,8 @@ const Login = () => {
   };
 
   const handleLogin = async event => {
-    setIsSpinnerVisible(true);
     event.preventDefault();
+    setIsSpinnerVisible(true);
 
     try {
       await logIn(emailInputVal, passwordInputVal);
@@ -37,7 +37,7 @@ const Login = () => {
       // navigate(from, { replace: true });
       navigate(-1);
     } catch (error) {
-      setLoginError(error);
+      setLoginError(error.message);
     }
 
     setIsSpinnerVisible(false);
@@ -47,9 +47,10 @@ const Login = () => {
     try {
       await googleRegister();
       setLoginError('');
-      navigate(from, { replace: true });
+      // navigate(from, { replace: true });
+      navigate(-1);
     } catch (error) {
-      setLoginError(error);
+      setLoginError(error.message);
     }
   };
 
@@ -57,9 +58,10 @@ const Login = () => {
     try {
       await githubRegister();
       setLoginError('');
-      navigate(from, { replace: true });
+      // navigate(from, { replace: true });
+      navigate(-1);
     } catch (error) {
-      setLoginError(error);
+      setLoginError(error.message);
     }
   };
 
