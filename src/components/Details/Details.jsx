@@ -39,15 +39,20 @@ const Details = () => {
         <img className={styles.detailsImg} src={img} alt="" />
         <div>
           <h2 className={styles.name}>{name}</h2>
-          <p>Created by {instructor}</p>
+          <p className={styles.instructor}>
+            Created by <span>{instructor}</span>
+          </p>
           <p>Last updated {ratings}</p>
+          <button
+            className={`${utilities.btn} ${styles.pdfBtn}`}
+            onClick={generatePDF}
+            type="button">
+            Save as pdf
+          </button>
         </div>
       </div>
 
       {/* <button onClick={this.}></button> */}
-      <button onClick={generatePDF} type="button">
-        Export PDF
-      </button>
 
       <div className={styles.body}>
         <div className={styles.stats}>

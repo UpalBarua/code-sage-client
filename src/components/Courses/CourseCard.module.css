@@ -19,6 +19,7 @@
 
 .title {
   font-size: var(--fs-600);
+  margin-bottom: var(--spacing-200);
   font-weight: var(--fw-bold);
 }
 
@@ -48,4 +49,5 @@
   padding-block: var(--spacing-300);
   margin-top: var(--spacing-200);
   font-weight: var(--fw-bold);
+  margin-top: auto;
 }

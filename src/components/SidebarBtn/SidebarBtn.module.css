@@ -4,8 +4,9 @@
   bottom: 1rem;
   left: 2rem;
   background-color: var(--clr-accent-400);
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3rem;
+  width: 3rem;
+  font-weight: var(--fw-bold);
   border: 0;
   display: grid;
   place-content: center;
