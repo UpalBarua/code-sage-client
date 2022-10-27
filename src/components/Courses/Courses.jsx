@@ -4,10 +4,13 @@ import CourseCard from './CourseCard';
 import { useSpinner } from '../../contexts/SpinnerContext';
 import utilities from '../../assets/utilities.module.css';
 import styles from '../Courses/Courses.module.css';
+import { useSidebar } from '../../contexts/SidebarContext';
+import SidebarBtn from '../SidebarBtn/SidebarBtn';
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const { setIsSpinnerVisible } = useSpinner();
+  const { isSidebarVisible } = useSidebar();
 
   useEffect(() => {
     setIsSpinnerVisible(true);
@@ -23,7 +26,7 @@ const Courses = () => {
   return (
     <div className={utilities.container}>
       <div className={styles.courseContainer}>
-        <aside className={styles.sidebar}>
+        <aside className={styles.sidebar} data-is-visible={isSidebarVisible}>
           <ul className={styles.menu}>
             {courses.map(course => (
               <li className={styles.menuItem} key={course.id}>
@@ -38,6 +41,7 @@ const Courses = () => {
           ))}
         </div>
       </div>
+      <SidebarBtn />
     </div>
   );
 };

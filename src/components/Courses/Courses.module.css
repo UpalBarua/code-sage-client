@@ -6,15 +6,25 @@
   grid-template-columns: auto;
   gap: var(--spacing-400);
   margin: var(--spacing-500) 0;
+  position: relative;
 }
 
 .sidebar {
   background-color: var(--clr-primary-300);
   padding: var(--spacing-400) var(--spacing-600);
-  display: none;
   height: max-content;
-  position: sticky;
+  position: fixed;
+  height: 100%;
+  width: 80%;
   top: 0;
+  left: 0;
+  margin-top: var(--spacing-600);
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in;
+}
+
+.sidebar[data-is-visible='true'] {
+  transform: translateX(0);
 }
 
 .sidebar .menuItem {
@@ -43,6 +53,10 @@
   }
 
   .sidebar {
-    display: initial;
+    position: sticky;
+    height: max-content;
+    width: 100%;
+    margin-top: 0;
+    transform: translateX(0);
   }
 }

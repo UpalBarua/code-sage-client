@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BsStarFill } from 'react-icons/bs';
+import { BsStar } from 'react-icons/bs';
 import utilities from '../../assets/utilities.module.css';
 import styles from './CourseCard.module.css';
 
@@ -21,7 +21,7 @@ const CourseCard = ({ course }) => {
 
       <div className={styles.footer}>
         <p className={styles.ratings}>
-          {ratings} <BsStarFill className={styles.icon} />
+          {ratings} <BsStar className={styles.icon} />
         </p>
         <p className={styles.price}>{price}</p>
       </div>

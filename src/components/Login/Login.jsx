@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { AiOutlineGoogle, AiOutlineGithub } from 'react-icons/ai';
 import EmailInput from '../Form/EmailInput';
 import PasswordInput from '../Form/PasswordInput';
@@ -15,6 +15,8 @@ const Login = () => {
   const { googleRegister, githubRegister, logIn } = useAuth();
   const { setIsSpinnerVisible } = useSpinner();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = async event => {
     setIsSpinnerVisible(true);
@@ -22,8 +24,9 @@ const Login = () => {
 
     try {
       await logIn(emailInputVal, passwordInputVal);
-      navigate('/');
       setLoginError('');
+      // navigate(from, { replace: true });
+      navigate(-1);
     } catch (error) {
       setLoginError(error);
     }
@@ -35,6 +38,7 @@ const Login = () => {
     try {
       await googleRegister();
       setLoginError('');
+      navigate(from, { replace: true });
     } catch (error) {
       setLoginError(error);
     }
@@ -44,6 +48,7 @@ const Login = () => {
     try {
       await githubRegister();
       setLoginError('');
+      navigate(from, { replace: true });
     } catch (error) {
       setLoginError(error);
     }

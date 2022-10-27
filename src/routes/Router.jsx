@@ -20,10 +20,17 @@ export const router = createBrowserRouter([
       { path: '/courses', element: <Courses /> },
       { path: '/details/:courseId', element: <Details /> },
       { path: '/f&q', element: <h1>f&q</h1> },
-      { path: '/blog', element: <Blog /> },
+      {
+        path: '/blog',
+        element: (
+          <PrivateRoute>
+            <Blog />
+          </PrivateRoute>
+        ),
+      },
       { path: '/dashboard', element: <UserDashboard /> },
       {
-        path: '/checkout',
+        path: '/checkout/:courseId',
         element: (
           <PrivateRoute>
             <Checkout />
