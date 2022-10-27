@@ -14,7 +14,7 @@ const photoUrlInput = ({ photoUrlInputVal, setPhotoUrlInputVal }) => {
   };
 
   useEffect(() => {
-    if (photoUrlInputVal === '' && isInputTouched) {
+    if (photoUrlInputVal === 0 && isInputTouched) {
       return setErrorMessage('Not a valid photo url');
     }
 

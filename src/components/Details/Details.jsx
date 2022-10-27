@@ -21,7 +21,8 @@ const Details = () => {
     })();
   }, []);
 
-  const { id, img, name, instructor, ratings, description } = courseDetails;
+  const { id, img, name, instructor, ratings, description, lastUpdated } =
+    courseDetails;
 
   const generatePDF = () => {
     const pdf = new jsPDF('portrait', 'pt', 'a4');
@@ -42,7 +43,7 @@ const Details = () => {
           <p className={styles.instructor}>
             Created by <span>{instructor}</span>
           </p>
-          <p>Last updated {ratings}</p>
+          <p>Last updated {lastUpdated} months ago</p>
           <button
             className={`${utilities.btn} ${styles.pdfBtn}`}
             onClick={generatePDF}

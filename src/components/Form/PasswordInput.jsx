@@ -46,6 +46,7 @@ const passwordInput = ({ passwordInputVal, setPasswordInputVal }) => {
         data-has-error={!!errorMessage}
         onChange={handlePasswordInputChange}
         onBlur={handleInputTouch}
+        required
       />
       {errorMessage && <p className={styles.warning}>{errorMessage}</p>}
     </div>

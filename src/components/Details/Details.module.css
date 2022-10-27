@@ -11,14 +11,15 @@
 }
 
 .detailsImg {
-  width: 10rem;
+  max-width: 20rem;
+  object-fit: cover;
+  object-position: center;
   margin-bottom: var(--spacing-400);
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   margin-block: var(--spacing-600);
 }
@@ -27,6 +28,7 @@
   font-size: var(--fs-600);
   font-weight: var(--fw-bold);
   margin-bottom: var(--spacing-300);
+  max-width: 90%;
 }
 
 .stats {

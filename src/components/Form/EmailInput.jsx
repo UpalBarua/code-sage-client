@@ -32,6 +32,7 @@ const EmailInput = ({ emailInputVal, setEmailInputVal }) => {
         data-has-error={!!errorMessage}
         onChange={handleEmailInputChange}
         onBlur={handleInputTouch}
+        required
       />
       {errorMessage && <p className={styles.warning}>{errorMessage}</p>}
     </div>

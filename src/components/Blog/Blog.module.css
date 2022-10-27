@@ -13,6 +13,9 @@
 .title {
   font-size: var(--fs-800);
   font-weight: var(--fw-bold);
+  font-family: var(--ff-secondary);
+  color: var(--clr-accent-400);
+  margin-block: var(--spacing-300);
 }
 
 .question {

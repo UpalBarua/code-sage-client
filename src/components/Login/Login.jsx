@@ -6,6 +6,7 @@ import PasswordInput from '../Form/PasswordInput';
 import { useAuth } from '../../contexts/AuthContext';
 import { useSpinner } from '../../contexts/SpinnerContext';
 import styles from '../Register/Register.module.css';
+import formStyles from '../../components/Form/Form.module.css';
 import utilities from '../../assets/utilities.module.css';
 
 const Login = () => {
@@ -17,6 +18,14 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
+
+  const handleEmailInputChange = event => {
+    setEmailInputVal(event.target.value.trim());
+  };
+
+  const handlePasswordInputChange = event => {
+    setPasswordInputVal(event.target.value.trim());
+  };
 
   const handleLogin = async event => {
     setIsSpinnerVisible(true);
@@ -82,14 +91,25 @@ const Login = () => {
 
         <form className={styles.form} onSubmit={handleLogin}>
           <div className={styles.formBody}>
-            <EmailInput
-              emailInputVal={emailInputVal}
-              setEmailInputVal={setEmailInputVal}
-            />
-            <PasswordInput
-              passwordInputVal={passwordInputVal}
-              setPasswordInputVal={setPasswordInputVal}
-            />
+            <div className={formStyles.wrapper}>
+              <label className={formStyles.label}>Email</label>
+              <input
+                className={formStyles.input}
+                type="text"
+                onChange={handleEmailInputChange}
+                required
+              />
+            </div>
+
+            <div className={formStyles.wrapper}>
+              <label className={formStyles.label}>password</label>
+              <input
+                className={formStyles.input}
+                type="password"
+                onChange={handlePasswordInputChange}
+                required
+              />
+            </div>
           </div>
 
           <div className={styles.formFooter}>

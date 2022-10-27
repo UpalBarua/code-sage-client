@@ -11,7 +11,7 @@
 
 .sidebar {
   background-color: var(--clr-primary-300);
-  padding: var(--spacing-400) var(--spacing-600);
+  padding: var(--spacing-300) var(--spacing-600);
   height: max-content;
   position: fixed;
   height: 100%;
@@ -28,13 +28,29 @@
 }
 
 .sidebar .menuItem {
-  margin-block: var(--spacing-400);
+  margin-block: var(--spacing-500);
+  transition: color 300ms ease-in;
+}
+
+.sidebar .menuItem:hover,
+.sidebar .menuItem:focus-visible {
+  outline: 0;
+  color: var(--clr-accent-400);
 }
 
 .cardsContainer {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-400);
+}
+
+.heading {
+  font-size: var(--fs-800);
+  font-weight: var(--fw-bold);
+  text-align: center;
+  color: var(--clr-accent-400);
+  margin-top: var(--spacing-500);
+  font-family: var(--ff-secondary);
 }
 
 @media screen and (min-width: 36em) {
@@ -54,9 +70,14 @@
 
   .sidebar {
     position: sticky;
+    top: 10%;
     height: max-content;
     width: 100%;
     margin-top: 0;
     transform: translateX(0);
+  }
+
+  .heading {
+    margin-block: var(--spacing-800);
   }
 }

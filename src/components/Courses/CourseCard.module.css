@@ -29,6 +29,7 @@
 }
 
 .footer {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,5 +50,11 @@
   padding-block: var(--spacing-300);
   margin-top: var(--spacing-200);
   font-weight: var(--fw-bold);
-  margin-top: auto;
+  transition: background-color 300ms ease-in;
+  letter-spacing: 1px;
+}
+
+.cardBtn:hover,
+.cardBtn:focus-visible {
+  background-color: var(--clr-accent-400);
 }

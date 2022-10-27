@@ -25,12 +25,13 @@ const Courses = () => {
 
   return (
     <div className={utilities.container}>
+      <h2 className={styles.heading}>Our Courses</h2>
       <div className={styles.courseContainer}>
         <aside className={styles.sidebar} data-is-visible={isSidebarVisible}>
           <ul className={styles.menu}>
             {courses.map(course => (
               <li className={styles.menuItem} key={course.id}>
-                <Link to={course.id}>{course.name}</Link>
+                <Link to={`/details/${course.id}`}>{course.name}</Link>
               </li>
             ))}
           </ul>

@@ -34,6 +34,7 @@ const confirmPasswordInput = ({
         data-has-error={!!errorMessage}
         onChange={handleConfirmPasswordInputChange}
         onBlur={handleInputTouch}
+        required
       />
       {errorMessage && <p className={styles.warning}>{errorMessage}</p>}
     </div>

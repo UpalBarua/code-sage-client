@@ -13,5 +13,8 @@ Live Site: https://codesage-bd5cf.web.app/
 
 ## About ❔
 
-- Fully responsive for mobile and table devices.
+- Fully responsive for mobile and tablet devices.
 - Navbar, Sidebar and loading spinner were created from scratch.
+-
+-
+-

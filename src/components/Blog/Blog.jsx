@@ -19,7 +19,7 @@ const Blog = () => {
       <div className={styles.blogContainer}>
         <h3 className={styles.title}>Blog</h3>
         {blogData.map(data => (
-          <div className={styles.wrapper}>
+          <div className={styles.wrapper} key={data.id}>
             <div className={styles.question}>
               <p className={styles.text}>{data.question}</p>
             </div>
